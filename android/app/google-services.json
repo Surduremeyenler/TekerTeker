@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "291704109226",
+    "project_id": "teker-t",
+    "storage_bucket": "teker-t.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291704109226:android:209c865331f69b10c7f8d3",
+        "android_client_info": {
+          "package_name": "com.example.teker_teker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291704109226-sckugjakg9l601plhdqep592al5i6itb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teker_teker",
+            "certificate_hash": "43b5bbc7335c435bc262ecb17629b17918068c27"
+          }
+        },
+        {
+          "client_id": "291704109226-mtilbshp540r64g5nj8v6guft62ifv0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYAHCPCT5bjvxtfois1EkywXUv4gSSRH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291704109226-mtilbshp540r64g5nj8v6guft62ifv0k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

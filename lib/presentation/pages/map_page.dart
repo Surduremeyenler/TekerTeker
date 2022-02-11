@@ -14,6 +14,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   final Completer<GoogleMapController> _controller = Completer();
   final MapService mapService = MapService();
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -22,9 +23,14 @@ class _MapPageState extends State<MapPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.done) {
+            //! Note:
+            /* Map<String, dynamic> data =
+                snapshot.data as Map<String, dynamic>;
+            data["markers"][0]["type"] şeklinde kullanılabiliyor UI içinde. */
+
             if (snapshot.hasData) {
               return Center(
-                child: const Text("data"),
+                child: Text("There are some datas."),
               );
             }
             /* Stack(

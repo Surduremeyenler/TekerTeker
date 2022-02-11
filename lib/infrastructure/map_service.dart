@@ -4,10 +4,11 @@ class MapService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<dynamic> getMarkers() async {
-    return await firestore
+    final response = await firestore
         .collection('bicycles')
         .doc("points")
         .get()
-        .then((value) => print(value.data()!["markers"][0]["geopoint"]));
+        .then((value) => value.data());
+    return response;
   }
 }

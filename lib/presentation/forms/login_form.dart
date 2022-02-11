@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:teker_teker/application/login/login_cubit.dart';
-import 'package:teker_teker/presentation/widgets/sign_in_page_widgets.dart';
+import 'package:teker_teker/presentation/widgets/login_page_widgets/sign_in_page_widgets.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({Key? key}) : super(key: key);

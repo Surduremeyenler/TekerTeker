@@ -15,10 +15,10 @@ Widget LogOutButton() {
             margin: const EdgeInsets.all(100),
             child: CupertinoButton(
                 padding: EdgeInsets.zero,
-                child: const Text('Logout'),
                 disabledColor: Colors.blueAccent.withOpacity(0.6),
                 color: Colors.blueAccent,
-                onPressed: () => context.read<LoginCubit>().signOut()),
+                onPressed: () => context.read<LoginCubit>().signOut(),
+                child: const Text('Logout')),
           );
         },
       )

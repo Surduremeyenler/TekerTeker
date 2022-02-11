@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:teker_teker/application/login/login_cubit.dart';
 import 'package:teker_teker/infrastructure/consts.dart';
 import 'package:teker_teker/presentation/pages/credit_page.dart';
 import 'package:teker_teker/presentation/pages/map_page.dart';
@@ -17,35 +19,35 @@ class _HomePageState extends State<HomePage> {
     MapPage(),
     CreditPage(),
     ProfilePage(),
-   
   ];
-   final items = <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        label: bottomNavBar1,
-        icon: Icon(Icons.map),
-      ),
-      BottomNavigationBarItem(
-        label: bottomNavBar2,
-        icon: Icon(Icons.cabin),
-      ),
-      BottomNavigationBarItem(
-        label: bottomNavBar3,
-        icon: Icon(Icons.radio_button_unchecked_sharp),
-      ),
-    ];
+  final items = <BottomNavigationBarItem>[
+    BottomNavigationBarItem(
+      label: bottomNavBar1,
+      icon: Icon(Icons.map),
+    ),
+    BottomNavigationBarItem(
+      label: bottomNavBar2,
+      icon: Icon(Icons.cabin),
+    ),
+    BottomNavigationBarItem(
+      label: bottomNavBar3,
+      icon: Icon(Icons.radio_button_unchecked_sharp),
+    ),
+  ];
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-   
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          updateTabSelection(index);
-        },
-        items: items,
-      ),
-      body: _screens[_selectedIndex]
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: (index) {
+              updateTabSelection(index);
+            },
+            items: items,
+          ),
+          body: _screens[_selectedIndex]),
     );
   }
 

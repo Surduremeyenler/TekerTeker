@@ -16,24 +16,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
-    MapPage(),
     CreditPage(),
+    MapPage(),
     ProfilePage(),
   ];
-  final items = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      label: bottomNavBar1,
-      icon: Icon(Icons.map),
-    ),
-    BottomNavigationBarItem(
-      label: bottomNavBar2,
-      icon: Icon(Icons.cabin),
-    ),
-    BottomNavigationBarItem(
-      label: bottomNavBar3,
-      icon: Icon(Icons.radio_button_unchecked_sharp),
-    ),
-  ];
+   final items = <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        label: bottomNavBar2,
+        icon: Icon(Icons.cabin),
+      ),
+      BottomNavigationBarItem(
+        label: bottomNavBar1,
+        icon: Icon(Icons.map),
+      ),
+      BottomNavigationBarItem(
+        label: bottomNavBar3,
+        icon: Icon(Icons.radio_button_unchecked_sharp),
+      ),
+    ];
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {

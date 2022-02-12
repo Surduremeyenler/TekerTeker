@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/login/login_cubit.dart';
+import 'package:teker_teker/application/map/map_cubit.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
 import 'package:teker_teker/presentation/pages/home_page/credit_page.dart';
 import 'package:teker_teker/presentation/pages/home_page/map_page.dart';
@@ -17,7 +18,10 @@ class HomePageNavigator extends StatefulWidget {
 class _HomePageNavigatorState extends State<HomePageNavigator> {
   final List<Widget> _screens = [
     CreditPage(),
-    MapPage(),
+    BlocProvider(
+      create: (context) => MapCubit()..loadMarkers(),
+      child: MapPage(),
+    ),
     ProfilePage(),
   ];
   final items = <BottomNavigationBarItem>[

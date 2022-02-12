@@ -30,6 +30,7 @@ dependencies:
   flashy_tab_bar2: ^0.0.4
   lottie: ^1.2.1
   qr_code_scanner: ^0.6.1
+  flutter_cache_manager: ^3.3.0
   simple_animations: ^4.0.1
 
 dev_dependencies:

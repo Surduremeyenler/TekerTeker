@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/auth/auth_cubit.dart';
 import 'package:teker_teker/presentation/pages/login_page/landing_page.dart';
+import 'package:teker_teker/presentation/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +19,6 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Teker Teker',
-        home: BlocProvider(
-          lazy: false,
-          create: (_) => AuthCubit(),
-          child: const AuthLandingPage(),
-        ));
+        home: const SplashPage());
   }
 }

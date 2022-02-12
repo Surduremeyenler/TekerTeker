@@ -3,15 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 
 import 'package:teker_teker/application/login/login_cubit.dart';
-import 'package:teker_teker/presentation/constants/constants.dart';
+import 'package:teker_teker/presentation/widgets/login_page_widgets/sign_in_page_body.dart';
 import 'package:teker_teker/presentation/widgets/login_page_widgets/sign_in_page_widgets.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({
     Key? key,
-    required this.formKey,
   }) : super(key: key);
-  final GlobalKey formKey;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -28,18 +27,7 @@ class LoginForm extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return Form(
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: defaultPadding),
-                  EmailInputField(),
-                  PasswordInputField(),
-                  const SizedBox(height: defaultPadding),
-                ],
-              ),
-            );
+            return SignInPageBody();
           }),
     );
   }

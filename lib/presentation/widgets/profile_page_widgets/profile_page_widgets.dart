@@ -22,11 +22,11 @@ Future<dynamic> showMyDialog(BuildContext context) {
       builder: (_) {
         return AlertDialog(
           title: Text('Do you really want to quit?'),
-          actions: <Widget>[
+          actions: [
             TextButton(
                 onPressed: () {
+                  Navigator.of(context, rootNavigator: true).pop('dialog');
                   context.read<LoginCubit>().signOut();
-                  Navigator.pop(context);
                 },
                 child: Text('Yes')),
             TextButton(

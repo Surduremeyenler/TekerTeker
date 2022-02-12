@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:teker_teker/infrastructure/consts.dart';
 import 'package:teker_teker/infrastructure/map_service.dart';
 
 class MapPage extends StatefulWidget {
@@ -21,21 +20,30 @@ class _MapPageState extends State<MapPage> {
     return FutureBuilder(
         future: mapService.getMarkers(),
         builder: (context, snapshot) {
-          log('${snapshot.data}');
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.done) {
-            return Stack(
-              children: [
-                // GoogleMap(
-                //   initialCameraPosition: initialCameraPosition,
-                //   mapType: MapType.terrain,
-                //   onMapCreated: (GoogleMapController controller) {
-                //     _onMapCreated(controller);
-                //   },
-                // ),
-              ],
-            );
+            if (snapshot.hasData) {
+              return Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Colors.transparent,
+                  leading: Icon(Icons.line_weight),
+                ),
+                body: Stack(
+                  children: [
+                    // GoogleMap(
+                    //   initialCameraPosition: initialCameraPosition,
+                    //   mapType: MapType.terrain,
+                    //   onMapCreated: (GoogleMapController controller) {
+                    //     _onMapCreated(controller);
+                    //   },
+                    // ),
+                  ],
+                ),
+              );
+            } else {
+              return Container();
+            }
           } else {
             return Container();
           }

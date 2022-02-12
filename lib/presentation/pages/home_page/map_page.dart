@@ -25,49 +25,58 @@ class _MapPageState extends State<MapPage> {
           return Center(child: CircularProgressIndicator());
         } else {
           state as MapLoaded;
-          return Stack(
-            children: [
-              GoogleMap(
-                initialCameraPosition: initialCameraPosition,
-                mapType: MapType.terrain,
-                markers: state.markers,
-                onMapCreated: (GoogleMapController controller) {
-                  _onMapCreated(controller);
-                },
-              ),
-              Positioned(
-                width: MediaQuery.of(context).size.width,
-                bottom: 40,
-                child: Center(
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const QrScannerPage()),
-                      );
-                    },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / 1.5,
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Sürüşe Başla',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white70,
+          return SafeArea(
+            child: Stack(
+              children: [
+                GoogleMap(
+                  initialCameraPosition: initialCameraPosition,
+                  mapType: MapType.terrain,
+                  markers: state.markers,
+                  onMapCreated: (GoogleMapController controller) {
+                    _onMapCreated(controller);
+                  },
+                ),
+                Positioned(
+                  width: MediaQuery.of(context).size.width,
+                  bottom: 40,
+                  child: Center(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const QrScannerPage()),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 1.5,
+                        height: 45,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SizedBox(),
+                              Text(
+                                'Sürüşe Başla',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Icon(Icons.qr_code_rounded,color: Colors.white,),
+                            ],
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         }
       },

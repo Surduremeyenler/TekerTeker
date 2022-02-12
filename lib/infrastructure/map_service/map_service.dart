@@ -63,7 +63,7 @@ class MapService {
   Future<Marker?> createMarker(String lat, String long) async {
     Marker _marker;
     var markerIcon = await getMarkerIcon(
-      url: markerUrl,
+      url: biycleMarkerUrl,
     );
 
     _marker = Marker(

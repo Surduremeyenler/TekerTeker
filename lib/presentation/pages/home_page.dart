@@ -39,7 +39,7 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
       icon: Icon(Icons.radio_button_unchecked_sharp),
     ),
   ];
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

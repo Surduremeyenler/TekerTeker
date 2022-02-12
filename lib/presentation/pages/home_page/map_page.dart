@@ -29,6 +29,7 @@ class _MapPageState extends State<MapPage> {
             data["markers"][0]["type"] şeklinde kullanılabiliyor UI içinde. */
 
             if (snapshot.hasData) {
+              print(snapshot.data);
               return Center(
                 child: Text("There are some datas."),
               );

@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
 
 Widget CreditNumbersWidget(context, {turkishLira, credit}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      BuildButton(context, turkishLira: turkishLira, credit: credit),
-      BuildDivider()
-    ],
-  );
+  return BuildButton(context, turkishLira: turkishLira, credit: credit);
 }
-
-Widget BuildDivider() => Container(
-      height: 24,
-      child: VerticalDivider(),
-    );
 
 Widget BuildButton(BuildContext context, {int? credit, int? turkishLira}) =>
     Column(
@@ -21,7 +10,7 @@ Widget BuildButton(BuildContext context, {int? credit, int? turkishLira}) =>
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Turkish Lira: ' + turkishLira.toString(),
+          'Turkish Lira: ' + turkishLira.toString() + '₺',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         Text(

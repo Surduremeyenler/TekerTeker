@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:teker_teker/infrastructure/firebase_user_service/firebase_user_service.dart';
 import 'package:teker_teker/presentation/widgets/profile_page_widgets/credit_numbers_widget.dart';
-import 'package:teker_teker/presentation/widgets/profile_page_widgets/profile_widget.dart';
+import 'package:teker_teker/presentation/widgets/profile_page_widgets/profile_page_widgets.dart';
 
 class ProfilePageBody extends StatelessWidget {
   ProfilePageBody({Key? key}) : super(key: key);
@@ -13,7 +12,6 @@ class ProfilePageBody extends StatelessWidget {
     return FutureBuilder(
         future: user,
         builder: (context, snapshot) {
-          print(snapshot.data);
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.done) {
@@ -32,6 +30,15 @@ class ProfilePageBody extends StatelessWidget {
                   CreditNumbersWidget(context,
                       turkishLira: data['turkish_lira'],
                       credit: data['credit']),
+                  const SizedBox(height: 24),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(Size(
+                        MediaQuery.of(context).size.width / 5,
+                        MediaQuery.of(context).size.height / 15,
+                      ))),
+                      onPressed: () {},
+                      child: Text("Convert Credit to Turkish Lira"))
                 ],
               );
             }

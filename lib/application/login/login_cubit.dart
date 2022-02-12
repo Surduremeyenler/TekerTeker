@@ -66,18 +66,18 @@ class LoginCubit extends Cubit<LoginState> {
 
     try {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
-      await _auth.signInWithCredential(credential).then((value) =>
-          FirebaseFirestore.instance
-              .collection('bicycles')
-              .doc(_auth.currentUser?.uid)
-              .set({
-            'email': value.user?.email,
-            'displayName': value.user?.displayName,
-            'photoURL': value.user?.photoURL,
-            'credit': 0,
-            'turkish_lira': 0
-          }));
-      emit(state.copyWith(status: FormzStatus.submissionSuccess));
+      await _auth.signInWithCredential(credential).then((value) async {
+        await FirebaseFirestore.instance
+            .collection('bicycles')
+            .doc(value.user?.uid)
+            .set({
+          'email': value.user?.email,
+          'displayName': value.user?.displayName,
+          'photoURL': value.user?.photoURL,
+          'credit': 0,
+          'turkish_lira': 0
+        });
+      });
     } on FirebaseAuthException catch (error) {
       emit(state.copyWith(
           exceptionError: error.message.toString(),
@@ -87,6 +87,7 @@ class LoginCubit extends Cubit<LoginState> {
           exceptionError: error.message.toString(),
           status: FormzStatus.submissionFailure));
     } catch (error) {
+      print(error);
       emit(state.copyWith(
           exceptionError: "Unexpected error please try again later",
           status: FormzStatus.submissionFailure));

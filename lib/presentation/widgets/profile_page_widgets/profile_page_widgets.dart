@@ -8,13 +8,35 @@ Widget ProfilePageAppBar(BuildContext context) {
     elevation: 0,
     actions: [
       IconButton(
-        icon: Icon(Icons.exit_to_app),
-        onPressed: () {
-          context.read<LoginCubit>().signOut();
-        },
-      ),
+          icon: Icon(Icons.exit_to_app),
+          onPressed: () {
+            showMyDialog(context);
+          }),
     ],
   );
+}
+
+Future<dynamic> showMyDialog(BuildContext context) {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Do you really want to quit?'),
+          actions: <Widget>[
+            TextButton(
+                onPressed: () {
+                  context.read<LoginCubit>().signOut();
+                },
+                child: Text('Yes')),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); //close Dialog
+              },
+              child: Text('Close'),
+            )
+          ],
+        );
+      });
 }
 
 class ProfileWidget extends StatelessWidget {
@@ -40,8 +62,8 @@ class ProfileWidget extends StatelessWidget {
     final image = NetworkImage(imagePath);
 
     return CircleAvatar(
-       radius: 70,
-        backgroundColor: Colors.purple,
+      radius: 70,
+      backgroundColor: Colors.purple,
       child: ClipOval(
         child: Material(
           color: Colors.transparent,

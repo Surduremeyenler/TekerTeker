@@ -10,11 +10,7 @@ class CreditPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      drawer: CreditsPageDrawer(),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height / 11),
-        child: CreditsPageAppBar(),
-      ),
+      
       body: HomePageBody(),
     );
   }

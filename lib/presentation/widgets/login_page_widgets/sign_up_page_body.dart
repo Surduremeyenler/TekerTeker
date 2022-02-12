@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:teker_teker/presentation/pages/login_page/fade_animation.dart';
-import 'package:teker_teker/presentation/widgets/login_page_widgets/sign_in_page_widgets.dart';
+import 'package:teker_teker/presentation/widgets/login_page_widgets/sign_up_page_widgets.dart';
 
-class SignInPageBody extends StatelessWidget {
-  const SignInPageBody({Key? key}) : super(key: key);
+class SignUpPageBody extends StatelessWidget {
+  const SignUpPageBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +18,8 @@ class SignInPageBody extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width / 1.6,
-                height:MediaQuery.of(context).size.height / 3,
-                child: Image.asset('assets/tekerteker_sign_in.jpeg'),
+                height:MediaQuery.of(context).size.height / 3.9,
+                child: Image.asset('assets/tekerteker_sign_up.jpeg'),
               ),
               Expanded(
                 child: Container(
@@ -59,18 +58,28 @@ class SignInPageBody extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Container(
-                                        padding: EdgeInsets.all(10),
                                         decoration: BoxDecoration(
                                             border: Border(
                                                 bottom: BorderSide(
                                                     color: Color.fromARGB(
                                                         255, 236, 236, 236)))),
-                                        child: EmailInputField(),
+                                        child: NameInputField(),
                                       ),
                                       Container(
-                                          padding: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(),
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                      color: Color.fromARGB(255,
+                                                          236, 236, 236)))),
+                                          child: EmailInputField()),
+                                      Container(
+                                          decoration: BoxDecoration(
+                                              border: Border(
+                                                  bottom: BorderSide(
+                                                      color: Color.fromARGB(255,
+                                                          236, 236, 236)))),
                                           child: PasswordInputField()),
+                                      Container(child: RePasswordInputField()),
                                     ],
                                   ),
                                 ),
@@ -79,24 +88,8 @@ class SignInPageBody extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        Login(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(child: ForgotPassword()),
-                            Expanded(child: SignUpButton(context)),
-                          ],
-                        ),
-                        FadeAnimation(
-                            1.7,
-                            Text(
-                              "Continue with social media",
-                              style: TextStyle(color: Colors.grey),
-                            )),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        SignInWithGoogle(),
+                        SignUp(context),
+                        SignInTextButton(context)
                       ],
                     ),
                   ),

@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:teker_teker/application/sign_up/sign_up_cubit.dart';
 import 'package:teker_teker/domain/auth_models/auth_text_field.dart';
 import 'package:teker_teker/domain/auth_models/name.dart';
@@ -9,12 +9,15 @@ import 'package:teker_teker/domain/auth_models/password.dart';
 import 'package:teker_teker/domain/auth_models/re_password.dart';
 
 Widget SignUpText() {
-  return const Padding(
-    padding: EdgeInsets.only(bottom: 30.0, top: 30.0),
+  return Padding(
+    padding: const EdgeInsets.all(15.0),
     child: Text(
-      'Register and Join Us!',
+      'Sign Up and Join Teker Teker!',
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      style: TextStyle(
+          fontSize: 35,
+          fontWeight: FontWeight.w700,
+          color: Color.fromARGB(218, 75, 75, 75)),
     ),
   );
 }
@@ -79,21 +82,41 @@ Widget RePasswordInputField() {
   );
 }
 
-Widget SignUp() {
+Widget SignUp(BuildContext context) {
   return BlocBuilder<SignUpCubit, SignUpState>(
     builder: (context, state) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 20),
-        child: CupertinoButton(
-          padding: EdgeInsets.zero,
-          child: const Text('Sign Up'),
-          disabledColor: Colors.blueAccent.withOpacity(0.6),
-          color: Colors.blueAccent,
-          onPressed: state.displaySignUpButton
-              ? () => context.read<SignUpCubit>().signUpWithCredentials()
-              : null,
-        ),
-      );
+      return state.displaySignUpButton
+          ? Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Opacity(
+                opacity: 1,
+                child: SignInButton(Buttons.Email,
+                    mini: false,
+                    text: 'Sign up with Email!',
+                    onPressed: () =>
+                        context.read<SignUpCubit>().signUpWithCredentials()),
+              ))
+          : Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Opacity(
+                  opacity: 0.4,
+                  child: SignInButton(Buttons.Email,
+                      mini: false,
+                      text: 'Sign up with Email!',
+                      onPressed: () {})));
     },
+  );
+}
+
+Widget SignInTextButton(BuildContext context) {
+  return TextButton(
+    onPressed: () {
+      Navigator.pop(context);
+    },
+    child: const Text(
+      'Do you have an account? Sign In!',
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+    ),
   );
 }

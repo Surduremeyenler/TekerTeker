@@ -35,11 +35,12 @@ Widget EmailInputField() {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return AuthTextField(
-          hint: 'Email',
-          keyboardType: TextInputType.emailAddress,
-          error: state.email.error?.name,
-          onChanged: (email) => context.read<LoginCubit>().emailChanged(email),
-        );
+            hint: 'Email',
+            keyboardType: TextInputType.emailAddress,
+            error: state.email.error?.name,
+            onChanged: (email) {
+              context.read<LoginCubit>().emailChanged(email);
+            });
       });
 }
 

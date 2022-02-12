@@ -87,7 +87,6 @@ class LoginCubit extends Cubit<LoginState> {
           exceptionError: error.message.toString(),
           status: FormzStatus.submissionFailure));
     } catch (error) {
-      print(error);
       emit(state.copyWith(
           exceptionError: "Unexpected error please try again later",
           status: FormzStatus.submissionFailure));

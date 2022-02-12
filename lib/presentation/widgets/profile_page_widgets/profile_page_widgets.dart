@@ -26,6 +26,7 @@ Future<dynamic> showMyDialog(BuildContext context) {
             TextButton(
                 onPressed: () {
                   context.read<LoginCubit>().signOut();
+                  Navigator.pop(context);
                 },
                 child: Text('Yes')),
             TextButton(

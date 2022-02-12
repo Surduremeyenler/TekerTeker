@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Item extends StatelessWidget {
-  const Item({
+class ContractedShop extends StatelessWidget {
+  const ContractedShop({
     Key? key,
     required this.text,
     required this.image,

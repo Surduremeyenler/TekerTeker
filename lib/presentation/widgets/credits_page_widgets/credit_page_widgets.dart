@@ -1,50 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:teker_teker/domain/credit_page_contracted_shop_list/credit_page_contracted_shop_list.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
-import 'package:teker_teker/presentation/widgets/credits_page_widgets/credit_page_item_list.dart';
 import 'package:teker_teker/presentation/widgets/credits_page_widgets/credit_page_user_card.dart';
 
-class ItemList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          Item(
-            image: Image.asset('assets/hepsiburada-logo-1024.png'),
-            text: 'Hepsiburada',
-            press: () => {},
-          ),
-          Item(
-            image: Image.asset('assets/Kartal_Yuvası_Logosu.png'),
-            text: 'Kartal Yuvası',
-            press: () {},
-          ),
-          Item(
-            image: Image.asset('assets/migrros.png'),
-            text: 'Migros Sanal Market',
-            press: () {},
-          ),
-          Item(
-            image: Image.asset('assets/trendyol-logo.png'),
-            text: 'Trendyol',
-            press: () {},
-          ),
-          Item(
-            image: Image.asset('assets/migrros.png'),
-            text: 'Migros Hediye Çeki',
-            press: () {},
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class CreditPageTopSection extends StatelessWidget {
-  const CreditPageTopSection(
-      {Key? key, required this.firebaseFirestore})
+  const CreditPageTopSection({Key? key, required this.firebaseFirestore})
       : super(key: key);
   final firebaseFirestore;
   @override
@@ -71,8 +31,7 @@ class CreditPageTopSection extends StatelessWidget {
 }
 
 class CreditPageBottomSection extends StatelessWidget {
-  const CreditPageBottomSection(
-      {Key? key, required this.firebaseFirestore})
+  const CreditPageBottomSection({Key? key, required this.firebaseFirestore})
       : super(key: key);
   final firebaseFirestore;
   @override
@@ -134,7 +93,7 @@ class CreditPageBottomSection extends StatelessWidget {
                 ),
               ),
             ),
-            ItemList(),
+            ContractedShopList(),
           ],
         ),
       ),

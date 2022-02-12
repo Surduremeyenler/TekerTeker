@@ -1,3 +1,4 @@
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/login/login_cubit.dart';
@@ -24,17 +25,17 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
     ),
     ProfilePage(),
   ];
-  final items = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      label: bottomNavBar2,
+  final items = <FlashyTabBarItem>[
+    FlashyTabBarItem(
+      title: Text(bottomNavBar2),
       icon: Icon(Icons.cabin),
     ),
-    BottomNavigationBarItem(
-      label: bottomNavBar1,
+    FlashyTabBarItem(
+      title: Text(bottomNavBar1),
       icon: Icon(Icons.map),
     ),
-    BottomNavigationBarItem(
-      label: bottomNavBar3,
+    FlashyTabBarItem(
+      title: Text(bottomNavBar3),
       icon: Icon(Icons.radio_button_unchecked_sharp),
     ),
   ];
@@ -44,13 +45,9 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              updateTabSelection(index);
-            },
-            items: items,
-          ),
+          bottomNavigationBar: 
+          FlashyTabBar(items: items,onItemSelected: (index)=>updateTabSelection(index),selectedIndex: _selectedIndex,),
+        
           body: _screens[_selectedIndex]),
     );
   }

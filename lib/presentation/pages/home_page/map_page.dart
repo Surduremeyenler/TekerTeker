@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:teker_teker/application/map/map_cubit.dart';
-import 'package:teker_teker/infrastructure/map_service/map_service.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
 
 class MapPage extends StatefulWidget {
@@ -34,6 +33,14 @@ class _MapPageState extends State<MapPage> {
                 onMapCreated: (GoogleMapController controller) {
                   _onMapCreated(controller);
                 },
+              ),
+              Positioned(
+                child: InkWell(
+                  onTap: (){},
+                  child: SizedBox(
+                    child: Text('Sürüşe Başla'),
+                  ),
+                ),
               ),
             ],
           );

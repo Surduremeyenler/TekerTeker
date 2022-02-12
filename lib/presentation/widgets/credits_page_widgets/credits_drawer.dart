@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePageDrawer extends StatelessWidget {
-  HomePageDrawer({Key? key}) : super(key: key);
+class CreditsPageDrawer extends StatelessWidget {
+  CreditsPageDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

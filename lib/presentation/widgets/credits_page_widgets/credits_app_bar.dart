@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomePageAppBar extends StatelessWidget {
-  const HomePageAppBar({Key? key}) : super(key: key);
+class CreditsPageAppBar extends StatelessWidget {
+  const CreditsPageAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

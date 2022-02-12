@@ -43,7 +43,7 @@ class ProfilePageBody extends StatelessWidget {
               );
             }
           }
-          return Container();
+          return Center(child: CircularProgressIndicator());
         });
   }
 }

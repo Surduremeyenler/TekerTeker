@@ -4,12 +4,12 @@ class Item extends StatelessWidget {
   const Item({
     Key? key,
     required this.text,
-    required this.imagem,
+    required this.image,
     this.press,
   }) : super(key: key);
 
   final String text;
-  final Image imagem;
+  final Image image;
   final VoidCallback? press;
 
   @override
@@ -30,7 +30,7 @@ class Item extends StatelessWidget {
             //   Icon(Icons.date_range, color: Colors.black),
             Container(
               child: CircleAvatar(
-                  child: imagem, backgroundColor: Colors.transparent),
+                  child: image, backgroundColor: Colors.transparent),
             ),
             SizedBox(width: 20),
             Expanded(

@@ -6,9 +6,11 @@ class CreditPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      body: CreditPageBody(),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey.shade100,
+        body: CreditPageBody(),
+      ),
     );
   }
 }

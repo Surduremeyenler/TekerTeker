@@ -9,8 +9,8 @@ class MapService {
     var data = await firestore.collection('bicycles').doc('points').get();
     var markerLocations = <LatLng>[];
     for (var markers in data['markers']) {
-      var lat = double.parse(markers[0]['lat']);
-      var long = double.parse(markers[0]['long']);
+      var lat = double.parse(markers['lat']);
+      var long = double.parse(markers['long']);
       var latLng = LatLng(lat, long);
 
       markerLocations.add(latLng);
@@ -32,7 +32,7 @@ class MapService {
       final marker = Marker(
         markerId: MarkerId(location.toString()),
         position: LatLng(location.latitude, location.longitude),
-        icon: icon,
+        icon: BitmapDescriptor.defaultMarker,
       );
 
       markers.add(marker);

@@ -48,7 +48,6 @@ Widget PasswordInputField() {
     buildWhen: (previous, current) => previous.password != current.password,
     builder: (context, state) {
       return AuthTextField(
-        padding: const EdgeInsets.symmetric(vertical: 20),
         hint: 'Password',
         isPasswordField: true,
         keyboardType: TextInputType.text,
@@ -66,7 +65,7 @@ Widget Login() {
       return Padding(
           padding: const EdgeInsets.only(top: 15),
           child: SignInButton(Buttons.Email,
-              mini: true,
+              mini: false,
               onPressed: () =>
                   context.read<LoginCubit>().logInWithCredentials()));
     },
@@ -101,21 +100,16 @@ Widget ForgotPassword() {
   return BlocBuilder<LoginCubit, LoginState>(
     builder: (context, state) {
       return Padding(
-        padding: const EdgeInsets.only(top: 15, left: 5),
-        child: CupertinoButton(
-            padding: EdgeInsets.zero,
-            borderRadius: BorderRadius.circular(3),
-            child: Container(
-              margin: const EdgeInsets.all(3),
-              child: const Text(
-                'Forgot Pw',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-              ),
-            ),
-            color: Colors.blueAccent,
-            onPressed: () {
-              context.read<LoginCubit>().resetPassword();
-            }),
+        padding: const EdgeInsets.only(right: 15),
+        child: TextButton(
+          onPressed: () {
+            context.read<LoginCubit>().resetPassword();
+          },
+          child: const Text(
+            'Forgot Password?',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          ),
+        ),
       );
     },
   );

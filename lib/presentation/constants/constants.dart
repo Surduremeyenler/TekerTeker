@@ -7,3 +7,5 @@ const String bottomNavBar3 = 'Profile';
 const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(0, 0));
 
 const String mapfailText = 'Bulunduğun bölgede bisiklet bulamadık :(';
+
+const defaultPadding = 16.0;

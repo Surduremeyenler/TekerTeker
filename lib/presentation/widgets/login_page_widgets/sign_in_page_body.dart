@@ -80,7 +80,13 @@ class SignInPageBody extends StatelessWidget {
                           height: 10,
                         ),
                         Login(),
-                        ForgotPassword(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(child: ForgotPassword()),
+                            Expanded(child: SignUpButton(context)),
+                          ],
+                        ),
                         FadeAnimation(
                             1.7,
                             Text(

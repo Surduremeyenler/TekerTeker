@@ -18,7 +18,6 @@ class Item extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          // primary: kPrimaryColor,
           padding: EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -27,10 +26,10 @@ class Item extends StatelessWidget {
         onPressed: press,
         child: Row(
           children: [
-            //   Icon(Icons.date_range, color: Colors.black),
             Container(
               child: CircleAvatar(
-                  child: image, backgroundColor: Colors.transparent),
+                  backgroundColor: Colors.transparent,
+                  child: image),
             ),
             SizedBox(width: 20),
             Expanded(

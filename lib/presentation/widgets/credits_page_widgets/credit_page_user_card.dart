@@ -6,7 +6,9 @@ class CreditPageUserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: MediaQuery.of(context).size.height / 15,),
+        SizedBox(
+          height: MediaQuery.of(context).size.height / 15,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

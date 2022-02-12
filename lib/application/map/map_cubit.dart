@@ -9,7 +9,7 @@ class MapCubit extends Cubit<MapState> {
 
   MapService service = MapService();
 
-  void loadMarkers({double lat = 51.5, double long = -0.17}) async {
+  void loadMarkers() async {
     emit(MapLoading());
     var markers = await service.getMarkers();
     emit(MapLoaded(markers));

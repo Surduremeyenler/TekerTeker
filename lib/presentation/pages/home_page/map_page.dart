@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:teker_teker/application/map/map_cubit.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
+import 'package:teker_teker/presentation/pages/qr_scanner_page.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -35,10 +36,34 @@ class _MapPageState extends State<MapPage> {
                 },
               ),
               Positioned(
-                child: InkWell(
-                  onTap: (){},
-                  child: SizedBox(
-                    child: Text('Sürüşe Başla'),
+                width: MediaQuery.of(context).size.width,
+                bottom: 40,
+                child: Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const QrScannerPage()),
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sürüşe Başla',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

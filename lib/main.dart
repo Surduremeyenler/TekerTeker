@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/auth/auth_cubit.dart';
-import 'package:teker_teker/presentation/pages/landing_page.dart';
+import 'package:teker_teker/presentation/pages/login_page/landing_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ class AppWidget extends StatelessWidget {
         home: BlocProvider(
           lazy: false,
           create: (_) => AuthCubit(),
-          child: const LandingPage(),
+          child: const AuthLandingPage(),
         ));
   }
 }

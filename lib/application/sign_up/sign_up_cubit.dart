@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:formz/formz.dart';
@@ -55,8 +56,21 @@ class SignUpCubit extends Cubit<SignUpState> {
   void signUpWithCredentials() async {
     try {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
-      await _auth.createUserWithEmailAndPassword(
-          email: state.email.value, password: state.password.value);
+      await _auth
+          .createUserWithEmailAndPassword(
+              email: state.email.value, password: state.password.value)
+          .then((value) => FirebaseFirestore.instance
+                  .collection('bicycles')
+                  .doc(_auth.currentUser?.uid)
+                  .set({
+                'email': state.email.value,
+                'password': state.password.value,
+                'displayName': state.name.value,
+                'photoURL':
+                    'https://espclarity.com/wp-content/uploads/2021/07/3rd-member.png',
+                'credit': 0,
+                'turkish_lira': 0
+              }));
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on FirebaseAuthException catch (error) {
       emit(state.copyWith(
@@ -67,8 +81,9 @@ class SignUpCubit extends Cubit<SignUpState> {
           exceptionError: error.message.toString(),
           status: FormzStatus.submissionFailure));
     } catch (error) {
+      print(error);
       emit(state.copyWith(
-          exceptionError: "Unexpected error please try again later",
+          exceptionError: 'Unexpected error please try again later',
           status: FormzStatus.submissionFailure));
     }
   }

@@ -6,7 +6,7 @@ import 'package:teker_teker/application/login/login_cubit.dart';
 import 'package:teker_teker/domain/auth_models/auth_text_field.dart';
 import 'package:teker_teker/domain/auth_models/email.dart';
 import 'package:teker_teker/domain/auth_models/password.dart';
-import 'package:teker_teker/presentation/pages/sign_up_page.dart';
+import 'package:teker_teker/presentation/pages/login_page/sign_up_page.dart';
 
 Widget LoginText() {
   return const Padding(

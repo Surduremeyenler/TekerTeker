@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:formz/formz.dart';
@@ -36,6 +37,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
       await _auth.signInWithEmailAndPassword(
           email: state.email.value, password: state.password.value);
+
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on FirebaseAuthException catch (error) {
       emit(state.copyWith(
@@ -53,10 +55,9 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final googleUser = await GoogleSignIn().signIn();
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final googleAuth = await googleUser?.authentication;
 
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
@@ -65,8 +66,18 @@ class LoginCubit extends Cubit<LoginState> {
 
     try {
       emit(state.copyWith(status: FormzStatus.submissionInProgress));
-      _auth.signInWithCredential(credential);
-      emit(state.copyWith(status: FormzStatus.submissionSuccess));
+      await _auth.signInWithCredential(credential).then((value) async {
+        await FirebaseFirestore.instance
+            .collection('bicycles')
+            .doc(value.user?.uid)
+            .set({
+          'email': value.user?.email,
+          'displayName': value.user?.displayName,
+          'photoURL': value.user?.photoURL,
+          'credit': 0,
+          'turkish_lira': 0
+        });
+      });
     } on FirebaseAuthException catch (error) {
       emit(state.copyWith(
           exceptionError: error.message.toString(),
@@ -76,6 +87,7 @@ class LoginCubit extends Cubit<LoginState> {
           exceptionError: error.message.toString(),
           status: FormzStatus.submissionFailure));
     } catch (error) {
+      print(error);
       emit(state.copyWith(
           exceptionError: "Unexpected error please try again later",
           status: FormzStatus.submissionFailure));

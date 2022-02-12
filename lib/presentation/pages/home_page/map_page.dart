@@ -1,9 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:teker_teker/infrastructure/map_service.dart';
+import 'package:teker_teker/infrastructure/map_service/map_service.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   final Completer<GoogleMapController> _controller = Completer();
   final MapService mapService = MapService();
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -23,30 +23,32 @@ class _MapPageState extends State<MapPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.done) {
+            //! Note:
+            /* Map<String, dynamic> data =
+                snapshot.data as Map<String, dynamic>;
+            data["markers"][0]["type"] şeklinde kullanılabiliyor UI içinde. */
+
             if (snapshot.hasData) {
-              return Scaffold(
-                appBar: AppBar(
-                  backgroundColor: Colors.transparent,
-                  leading: Icon(Icons.line_weight),
-                ),
-                body: Stack(
-                  children: [
-                    // GoogleMap(
-                    //   initialCameraPosition: initialCameraPosition,
-                    //   mapType: MapType.terrain,
-                    //   onMapCreated: (GoogleMapController controller) {
-                    //     _onMapCreated(controller);
-                    //   },
-                    // ),
-                  ],
-                ),
+              print(snapshot.data);
+              return Center(
+                child: Text("There are some datas."),
               );
-            } else {
-              return Container();
             }
+            /* Stack(
+              children: [
+               GoogleMap(
+                 initialCameraPosition: initialCameraPosition,
+                 mapType: MapType.terrain,
+                 onMapCreated: (GoogleMapController controller) {
+                   _onMapCreated(controller);
+                 },
+               ),
+              ],
+            ); */
           } else {
             return Container();
           }
+          return Container();
         });
   }
 

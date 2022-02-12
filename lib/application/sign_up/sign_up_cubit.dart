@@ -69,7 +69,8 @@ class SignUpCubit extends Cubit<SignUpState> {
                 'photoURL':
                     'https://espclarity.com/wp-content/uploads/2021/07/3rd-member.png',
                 'credit': 0,
-                'turkish_lira': 0
+                'teker_lira': 0,
+                'driver_type': 'Silver Driver'
               }));
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on FirebaseAuthException catch (error) {

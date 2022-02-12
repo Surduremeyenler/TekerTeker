@@ -9,11 +9,12 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
-      body: BlocProvider(
-        create: (_) => LoginCubit(),
-        child: const LoginForm(),
+    return SafeArea(
+      child: Scaffold(
+        body: BlocProvider(
+          create: (_) => LoginCubit(),
+          child: LoginForm(),
+        ),
       ),
     );
   }

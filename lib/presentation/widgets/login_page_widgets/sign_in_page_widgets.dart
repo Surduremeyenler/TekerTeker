@@ -35,11 +35,12 @@ Widget EmailInputField() {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return AuthTextField(
-          hint: 'Email',
-          keyboardType: TextInputType.emailAddress,
-          error: state.email.error?.name,
-          onChanged: (email) => context.read<LoginCubit>().emailChanged(email),
-        );
+            hint: 'Email',
+            keyboardType: TextInputType.emailAddress,
+            error: state.email.error?.name,
+            onChanged: (email) {
+              context.read<LoginCubit>().emailChanged(email);
+            });
       });
 }
 
@@ -48,7 +49,6 @@ Widget PasswordInputField() {
     buildWhen: (previous, current) => previous.password != current.password,
     builder: (context, state) {
       return AuthTextField(
-        padding: const EdgeInsets.symmetric(vertical: 20),
         hint: 'Password',
         isPasswordField: true,
         keyboardType: TextInputType.text,
@@ -66,7 +66,7 @@ Widget Login() {
       return Padding(
           padding: const EdgeInsets.only(top: 15),
           child: SignInButton(Buttons.Email,
-              mini: true,
+              mini: false,
               onPressed: () =>
                   context.read<LoginCubit>().logInWithCredentials()));
     },
@@ -74,25 +74,17 @@ Widget Login() {
 }
 
 Widget SignUpButton(context) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 15, right: 5),
-    child: CupertinoButton(
-      padding: EdgeInsets.zero,
-      borderRadius: BorderRadius.circular(3),
-      child: Container(
-        margin: const EdgeInsets.all(3),
-        child: const Text(
-          'Sign Up',
-          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-        ),
-      ),
-      color: Colors.blueAccent,
-      onPressed: () => {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const SignUpPage()),
-        )
-      },
+  return TextButton(
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SignUpPage()),
+      );
+    },
+    child: const Text(
+      "Don't have an account? Sign Up!",
+      textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     ),
   );
 }
@@ -100,22 +92,15 @@ Widget SignUpButton(context) {
 Widget ForgotPassword() {
   return BlocBuilder<LoginCubit, LoginState>(
     builder: (context, state) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 15, left: 5),
-        child: CupertinoButton(
-            padding: EdgeInsets.zero,
-            borderRadius: BorderRadius.circular(3),
-            child: Container(
-              margin: const EdgeInsets.all(3),
-              child: const Text(
-                'Forgot Pw',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-              ),
-            ),
-            color: Colors.blueAccent,
-            onPressed: () {
-              context.read<LoginCubit>().resetPassword();
-            }),
+      return TextButton(
+        onPressed: () {
+          context.read<LoginCubit>().resetPassword();
+        },
+        child: const Text(
+          'Forgot Password?',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+        ),
       );
     },
   );

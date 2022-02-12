@@ -31,6 +31,7 @@ dependencies:
   lottie: ^1.2.1
   qr_code_scanner: ^0.6.1
   flutter_cache_manager: ^3.3.0
+  simple_animations: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -47,10 +48,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets:
-  - assets/
-  #   - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

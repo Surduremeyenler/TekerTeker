@@ -39,22 +39,22 @@ class CreditPageBottomSection extends StatelessWidget {
   final firebaseFirestore;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3.5),
-      padding: EdgeInsets.only(top: 20.0),
-      decoration: BoxDecoration(
-        color: kBodyColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3.5),
+        padding: EdgeInsets.only(top: 15.0),
+        decoration: BoxDecoration(
+          color: kBodyColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
         ),
-      ),
-      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Balance',
+              'Cüzdan',
               style: TextStyle(
                 fontSize: 23,
                 color: Colors.white,
@@ -92,7 +92,7 @@ class CreditPageBottomSection extends StatelessWidget {
                       ),
                     )),
                 child: Text(
-                  'Earn Teker Teker',
+                  'Teker Teker Lirası Kazan',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

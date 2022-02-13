@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:teker_teker/application/login/login_cubit.dart';
+import 'package:teker_teker/presentation/constants/constants.dart';
 import 'package:teker_teker/presentation/widgets/profile_page_widgets/colorized_card.dart';
 
 Widget ProfilePageAppBar(BuildContext context) {
@@ -36,7 +37,7 @@ Column buildRidesHistory(state) {
       ListView.builder(
           primary: false,
           shrinkWrap: true,
-          itemCount: 10,
+          itemCount: state.profileInformation['totalridecount'],
           itemBuilder: (context, index) {
             return Container(
                 margin: EdgeInsets.only(bottom: 10),
@@ -48,7 +49,7 @@ Column buildRidesHistory(state) {
                 ),
                 child: ListTile(
                   leading: Icon(Icons.directions_bike_rounded),
-                  title: Text('asdasd'),
+                  title: Text('13.02.2022'),
                 ));
           }),
     ],
@@ -124,19 +125,27 @@ Future<dynamic> showMyDialog(BuildContext context) {
       context: context,
       builder: (_) {
         return AlertDialog(
-          title: Text('Do you really want to quit?'),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 18),
+          backgroundColor: kBodyColor,
+          title: Text('Çıkmak İstediğine Emin misin ?'),
           actions: [
             TextButton(
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true).pop('dialog');
                   context.read<LoginCubit>().signOut();
                 },
-                child: Text('Yes')),
+                child: Text(
+                  'Evet',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                )),
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Close'),
+              child: Text(
+                'Hayır',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             )
           ],
         );

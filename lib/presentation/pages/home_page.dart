@@ -29,15 +29,15 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
 
   final items = <FlashyTabBarItem>[
     FlashyTabBarItem(
-      title: Text(bottomNavBar2),
+      title: Text(bottomNavBar2,style: TextStyle(color: Colors.black),),
       icon: Icon(Icons.cabin),
     ),
     FlashyTabBarItem(
-      title: Text(bottomNavBar1),
+      title: Text(bottomNavBar1,style: TextStyle(color: Colors.black),),
       icon: Icon(Icons.map),
     ),
     FlashyTabBarItem(
-      title: Text(bottomNavBar3),
+      title: Text(bottomNavBar3,style: TextStyle(color: Colors.black),),
       icon: Icon(Icons.radio_button_unchecked_sharp),
     ),
   ];
@@ -82,7 +82,7 @@ class HomePageSlice extends StatelessWidget {
         return Scaffold(
           backgroundColor: kBodyColor,
           bottomNavigationBar: FlashyTabBar(
-            backgroundColor: kGradientColor2,
+            backgroundColor: Colors.white,
               items: items,
               onItemSelected: (index) {
                 context

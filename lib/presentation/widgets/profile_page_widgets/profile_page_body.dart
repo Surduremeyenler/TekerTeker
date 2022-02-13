@@ -15,8 +15,7 @@ class ProfilePageBody extends StatelessWidget {
         return Center(
           child: LoadingIndicator(),
         );
-      } else {
-        state as ProfileLoaded;
+      } else if(state is ProfileLoaded) {
         return SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(
@@ -36,6 +35,9 @@ class ProfilePageBody extends StatelessWidget {
             ),
           ),
         );
+      }
+      else{
+        return Container();
       }
     });
   }

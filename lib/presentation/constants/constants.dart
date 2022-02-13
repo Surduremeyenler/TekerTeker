@@ -6,7 +6,7 @@ const String bottomNavBar2 = 'Credits';
 const String bottomNavBar3 = 'Profile';
 
 const CameraPosition initialCameraPosition =
-    CameraPosition(target: LatLng(41.1, 28.9), zoom: 8);
+    CameraPosition(target: LatLng(41.0, 28.9), zoom: 11);
 
 const String mapfailText = 'Bulunduğun bölgede bisiklet bulamadık :(';
 const String biycleMarkerUrl =

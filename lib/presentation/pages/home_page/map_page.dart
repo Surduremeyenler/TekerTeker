@@ -33,6 +33,7 @@ class _MapPageState extends State<MapPage> {
                   initialCameraPosition: initialCameraPosition,
                   mapType: MapType.terrain,
                   markers: state.markers,
+                  myLocationEnabled: true,
                   onMapCreated: (GoogleMapController controller) {
                     _onMapCreated(controller);
                   },

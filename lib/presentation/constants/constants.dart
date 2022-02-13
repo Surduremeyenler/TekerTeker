@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-const String bottomNavBar1 = 'Map';
-const String bottomNavBar2 = 'Credits';
-const String bottomNavBar3 = 'Profile';
+const String bottomNavBar1 = 'Harita';
+const String bottomNavBar2 = 'Kredi';
+const String bottomNavBar3 = 'Profil';
 
 const CameraPosition initialCameraPosition =
     CameraPosition(target: LatLng(41.0, 28.9), zoom: 11);

@@ -9,109 +9,115 @@ Widget ProfilePageAppBar(BuildContext context) {
     elevation: 0,
     actions: [
       IconButton(
-          icon: Icon(Icons.exit_to_app,color: Colors.white60,),
+          icon: Icon(
+            Icons.exit_to_app,
+            color: Colors.white60,
+          ),
           onPressed: () {
             showMyDialog(context);
           }),
     ],
   );
 }
- Column buildRidesHistory() {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Sürüş Geçmişi',
-            style: TextStyle(fontSize: 19, color: Colors.white60),
-          ),
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        ListView.builder(
-            primary: false,
-            shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                  margin: EdgeInsets.only(bottom: 10),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: ListTile(
-                    leading: Icon(Icons.directions_bike_rounded),
-                    title: Text('asdasd'),
-                  ));
-            }),
-      ],
-    );
-  }
 
-  Column buildCards() {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: ColorizedCard(
-                color: Colors.yellow.shade700,
-                topText: 'Toplam Sürüş',
-                bottomText: 'test',
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Expanded(
-              child: ColorizedCard(
-                color: Colors.red,
-                topText: 'Yapılan Mesafe',
-                bottomText: 'test',
-              ),
-            ),
-          ],
+Column buildRidesHistory(state) {
+  return Column(
+    children: [
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          'Sürüş Geçmişi',
+          style: TextStyle(fontSize: 19, color: Colors.white60),
         ),
-        SizedBox(
-          height: 20,
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: ColorizedCard(
-                color: Colors.green,
-                topText: 'Credits',
-                bottomText: 'test',
-              ),
+      ),
+      SizedBox(
+        height: 15,
+      ),
+      ListView.builder(
+          primary: false,
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Container(
+                margin: EdgeInsets.only(bottom: 10),
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.directions_bike_rounded),
+                  title: Text('asdasd'),
+                ));
+          }),
+    ],
+  );
+}
+
+Column buildCards(state) {
+  return Column(
+    children: [
+      Row(
+        children: [
+          Expanded(
+            child: ColorizedCard(
+              color: Colors.yellow.shade700,
+              topText: 'Toplam Sürüş',
+              bottomText:
+                  state.profileInformation['total_driving_time'].toString(),
             ),
-            SizedBox(
-              width: 10,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: ColorizedCard(
+              color: Colors.red,
+              topText: 'Yapılan Mesafe',
+              bottomText:
+                  state.profileInformation['travalled_distance'].toString(),
             ),
-            Expanded(
-              child: ColorizedCard(
-                color: Colors.blue,
-                topText: 'Kalori',
-                bottomText: 'test',
-              ),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 20,
+      ),
+      Row(
+        children: [
+          Expanded(
+            child: ColorizedCard(
+              color: Colors.green,
+              topText: 'Credits',
+              bottomText: state.profileInformation['credit'].toString(),
             ),
-            SizedBox(
-              width: 10,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: ColorizedCard(
+              color: Colors.blue,
+              topText: 'Kalori',
+              bottomText: state.profileInformation['calorie'].toString(),
             ),
-            Expanded(
-              child: ColorizedCard(
-                color: Colors.purple,
-                topText: 'Seviye',
-                bottomText: 'Gümüş',
-              ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: ColorizedCard(
+              color: Colors.purple,
+              topText: 'Seviye',
+              bottomText: state.profileInformation['driver_type'],
             ),
-          ],
-        ),
-      ],
-    );
-  }
+          ),
+        ],
+      ),
+    ],
+  );
+}
 
 Future<dynamic> showMyDialog(BuildContext context) {
   return showDialog(
@@ -176,4 +182,3 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 }
-

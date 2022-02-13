@@ -27,11 +27,11 @@ class ProfilePageBody extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                buildCards(),
+                buildCards(state),
                 SizedBox(
                   height: 40,
                 ),
-                buildRidesHistory(),
+                buildRidesHistory(state),
               ],
             ),
           ),

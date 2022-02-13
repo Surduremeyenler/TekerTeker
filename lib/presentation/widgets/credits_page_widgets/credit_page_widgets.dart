@@ -11,7 +11,6 @@ class CreditPageTopSection extends StatelessWidget {
   final firebaseFirestore;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(

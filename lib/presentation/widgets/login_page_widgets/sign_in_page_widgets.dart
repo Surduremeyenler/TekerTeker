@@ -81,7 +81,7 @@ Widget SignUpButton(context) {
       );
     },
     child: const Text(
-      "Hesabın Yok mu? Hemen Kaydol",
+      'Hesabın Yok mu? Hemen Kaydol',
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     ),
@@ -119,7 +119,7 @@ Widget SignInWithGoogle() {
 
 SnackBar SnackBarWhenSuccess() {
   return const SnackBar(
-    content: Text("Başarılı"),
+    content: Text('Başarılı'),
     backgroundColor: Colors.green,
   );
 }

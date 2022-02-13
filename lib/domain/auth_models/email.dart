@@ -25,7 +25,7 @@ extension Explanation on EmailValidationError {
   String? get name {
     switch (this) {
       case EmailValidationError.invalid:
-        return "This is not a valid email";
+        return 'Bu geçerli bir mail değil';
       default:
         return null;
     }

@@ -23,7 +23,7 @@ extension Explanation on PasswordValidationError {
   String? get name {
     switch (this) {
       case PasswordValidationError.invalid:
-        return "Invalid condition";
+        return 'Geçersiz Şifre';
       default:
         return null;
     }

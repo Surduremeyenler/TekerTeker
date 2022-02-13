@@ -18,7 +18,7 @@ class SignUpForm extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           } else if (state.status.isSubmissionSuccess) {
             var snackBar = const SnackBar(
-              content: Text("Başarılı!"),
+              content: Text('Başarılı!'),
               backgroundColor: Colors.green,
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);

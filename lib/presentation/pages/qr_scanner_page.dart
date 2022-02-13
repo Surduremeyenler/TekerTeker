@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:teker_teker/presentation/pages/ride_map.dart';
@@ -58,6 +56,7 @@ class _QrScannerPageState extends State<QrScannerPage> {
                     setState(() {
                       isFlashOpen ? isFlashOpen = false : isFlashOpen = true;
                     });
+                  // ignore: empty_catches
                   } catch (e) {}
                 },
                 child: CircleAvatar(

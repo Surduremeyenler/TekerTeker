@@ -49,7 +49,7 @@ class LoginCubit extends Cubit<LoginState> {
           status: FormzStatus.submissionFailure));
     } catch (error) {
       emit(state.copyWith(
-          exceptionError: "Unexpected error please try again later",
+          exceptionError: 'Unexpected error please try again later',
           status: FormzStatus.submissionFailure));
     }
   }
@@ -92,7 +92,7 @@ class LoginCubit extends Cubit<LoginState> {
           status: FormzStatus.submissionFailure));
     } catch (error) {
       emit(state.copyWith(
-          exceptionError: "Unexpected error please try again later",
+          exceptionError: 'Unexpected error please try again later',
           status: FormzStatus.submissionFailure));
     }
   }
@@ -112,7 +112,7 @@ class LoginCubit extends Cubit<LoginState> {
           status: FormzStatus.submissionFailure));
     } catch (error) {
       emit(state.copyWith(
-          exceptionError: "Unexpected error please try again later",
+          exceptionError: 'Unexpected error please try again later',
           status: FormzStatus.submissionFailure));
     }
   }
@@ -132,7 +132,7 @@ class LoginCubit extends Cubit<LoginState> {
           status: FormzStatus.submissionFailure));
     } catch (error) {
       emit(state.copyWith(
-          exceptionError: "Unexpected error please try again later",
+          exceptionError: 'Unexpected error please try again later',
           status: FormzStatus.submissionFailure));
     }
   }

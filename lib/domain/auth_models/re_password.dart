@@ -23,7 +23,7 @@ extension Explanation on RePasswordValidationError {
   String? get name {
     switch (this) {
       case RePasswordValidationError.invalid:
-        return "Invalid condition";
+        return 'Geçersiz Şifre';
       default:
         return null;
     }

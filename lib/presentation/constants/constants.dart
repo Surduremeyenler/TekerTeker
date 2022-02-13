@@ -34,7 +34,7 @@ const kSubTitlesStyle = TextStyle(
   color: Colors.grey,
   fontSize: 12,
 );
-const signInSocial = "Continue with social media";
+const signInSocial = 'Sosyal Medyayla Devam Et';
 
 const startRiding = 'Sürüşe Başla';
 

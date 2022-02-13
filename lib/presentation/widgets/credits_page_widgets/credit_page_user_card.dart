@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
 
 class CreditPageUserCard extends StatelessWidget {
+  final firebaseFirestore;
+
+  const CreditPageUserCard({Key? key, this.firebaseFirestore})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,8 +30,8 @@ class CreditPageUserCard extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 30,
-                      backgroundImage: AssetImage(
-                          'assets/212cee95875ce62c2b290d4d18c1f815.jpg'),
+                      backgroundImage:
+                          NetworkImage(firebaseFirestore['photoURL']),
                     ),
                     SizedBox(width: 10.0),
                     Column(
@@ -35,7 +39,7 @@ class CreditPageUserCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Alper Efe Şahin',
+                          firebaseFirestore['displayName'],
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -44,7 +48,7 @@ class CreditPageUserCard extends StatelessWidget {
                         ),
                         SizedBox(height: 10.0),
                         Text(
-                          'Gümüş Sürücü',
+                          firebaseFirestore['driver_type'],
                           style: TextStyle(
                             fontSize: 15,
                             color: Colors.yellow.shade800,

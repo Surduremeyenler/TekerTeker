@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teker_teker/domain/credit_page_contracted_shop_list/credit_page_contracted_shop_list.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
+import 'package:teker_teker/presentation/pages/home_page/map_page.dart';
 import 'package:teker_teker/presentation/widgets/credits_page_widgets/credit_page_user_card.dart';
 
 class CreditPageTopSection extends StatelessWidget {
@@ -26,7 +27,7 @@ class CreditPageTopSection extends StatelessWidget {
             stops: [0.0, 0.3, 0.2, 0.3, 0.63, 0.63, 0.0],
           ),
         ),
-        child: CreditPageUserCard());
+        child: CreditPageUserCard(firebaseFirestore: firebaseFirestore));
   }
 }
 
@@ -59,7 +60,7 @@ class CreditPageBottomSection extends StatelessWidget {
             ),
             SizedBox(height: 6.0),
             Text(
-              '6,700 TKL',
+              firebaseFirestore['teker_lira'].toString() + ' TKL',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 35,
@@ -71,7 +72,12 @@ class CreditPageBottomSection extends StatelessWidget {
             ButtonTheme(
               height: MediaQuery.of(context).size.height / 8,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MapPage()),
+                  );
+                },
                 style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(
                       MediaQuery.of(context).size.width / 1.5,

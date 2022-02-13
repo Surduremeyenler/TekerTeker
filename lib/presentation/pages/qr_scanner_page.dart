@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:teker_teker/presentation/pages/ride_map.dart';
 
 class QrScannerPage extends StatefulWidget {
   const QrScannerPage({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _QrScannerPageState extends State<QrScannerPage> {
     }
   }
 
+  bool isFlashOpen = false;
   @override
   Widget build(BuildContext context) {
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
@@ -51,10 +53,17 @@ class _QrScannerPageState extends State<QrScannerPage> {
             child: Center(
               child: InkWell(
                 onTap: () async {
-                  await controller?.toggleFlash();
-                  setState(() {});
+                  try {
+                    await controller?.toggleFlash();
+                    setState(() {
+                      isFlashOpen ? isFlashOpen = false : isFlashOpen = true;
+                    });
+                  } catch (e) {}
                 },
-                child: Icon(Icons.flashlight_on,size: 40,),
+                child: Icon(
+                  Icons.flashlight_on,
+                  size: 40,
+                ),
               ),
             ),
           ),
@@ -68,6 +77,13 @@ class _QrScannerPageState extends State<QrScannerPage> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
+        //this part mocked this will change will real bicycle id
+        if (result?.code != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RideMap()),
+          );
+        }
       });
     });
   }

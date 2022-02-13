@@ -70,7 +70,10 @@ class SignUpCubit extends Cubit<SignUpState> {
                     'https://espclarity.com/wp-content/uploads/2021/07/3rd-member.png',
                 'credit': 0,
                 'teker_lira': 0,
-                'driver_type': 'Silver Driver'
+                'total_driving_time': 6,
+                'travalled_distance': 54,
+                'calorie': 193,
+                'driver_type': 'Gümüş'
               }));
       emit(state.copyWith(status: FormzStatus.submissionSuccess));
     } on FirebaseAuthException catch (error) {

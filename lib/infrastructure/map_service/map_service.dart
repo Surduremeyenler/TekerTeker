@@ -2,13 +2,15 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:teker_teker/infrastructure/map_service/geolocater_service.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
 
 class MapService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  GeolocaterService geolocaterService = GeolocaterService();
 
   Future<Set<Marker>> getMarkers() async {
     var data = await firestore.collection('bicycles').doc('points').get();
@@ -72,5 +74,13 @@ class MapService {
         icon: BitmapDescriptor.fromBytes(markerIcon!));
 
     return _marker;
+  }
+
+  Future<Position> getUserPosition() async {
+    var position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+
+    return position;
   }
 }

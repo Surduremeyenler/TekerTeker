@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:teker_teker/application/cubit/profile_cubit.dart';
-import 'package:teker_teker/application/cubit/profile_cubit.dart';
-import 'package:teker_teker/application/cubit/profile_state.dart';
+import 'package:teker_teker/application/profile/profile_cubit.dart';
+import 'package:teker_teker/application/profile/profile_state.dart';
 import 'package:teker_teker/presentation/widgets/loading_indicator.dart';
 import 'package:teker_teker/presentation/widgets/profile_page_widgets/profile_page_widgets.dart';
 
@@ -43,31 +42,31 @@ class ProfilePageBody extends StatelessWidget {
 
   Column buildProfile(ProfileLoaded state) {
     return Column(
-                children: [
-                  ProfileWidget(
-                    imagePath: state.profileInformation['photoURL'],
-                    onClicked: () {},
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    state.profileInformation['displayName'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    state.profileInformation['email'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 16,
-                      color: Colors.white70,
-                    ),
-                  ),
-                ],
-              );
+      children: [
+        ProfileWidget(
+          imagePath: state.profileInformation['photoURL'],
+          onClicked: () {},
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          state.profileInformation['displayName'],
+          style: TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize: 20,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          state.profileInformation['email'],
+          style: TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize: 16,
+            color: Colors.white70,
+          ),
+        ),
+      ],
+    );
   }
 }

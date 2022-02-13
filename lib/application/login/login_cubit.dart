@@ -76,7 +76,10 @@ class LoginCubit extends Cubit<LoginState> {
           'photoURL': value.user?.photoURL,
           'credit': 0,
           'teker_lira': 0,
-          'driver_type': 'Silver Driver'
+          'total_driving_time': 6,
+          'travalled_distance': 54,
+           'calorie': 193,
+          'driver_type': 'Gümüş'
         });
       });
     } on FirebaseAuthException catch (error) {

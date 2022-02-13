@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/cubit/profile_cubit.dart';
+import 'package:teker_teker/application/cubit/profile_cubit.dart';
 import 'package:teker_teker/application/cubit/profile_state.dart';
 import 'package:teker_teker/presentation/widgets/loading_indicator.dart';
 import 'package:teker_teker/presentation/widgets/profile_page_widgets/profile_page_widgets.dart';

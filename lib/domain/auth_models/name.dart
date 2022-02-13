@@ -12,10 +12,10 @@ class Name extends FormzInput<String, NameError> {
 
   @override
   NameError? validator(String value) {
-    if (value.isEmpty == true || value == "") {
+    if (value.isEmpty == true || value == '') {
       return NameError.empty;
     }
-    return _nameRegExp.hasMatch(value) && value.length < 10
+    return _nameRegExp.hasMatch(value) && value.length < 20
         ? null
         : value.isEmpty
             ? null
@@ -27,7 +27,7 @@ extension Explanation on NameError {
   String? get name {
     switch (this) {
       case NameError.invalid:
-        return "This is not a valid name";
+        return 'This is not a valid name';
       default:
         return null;
     }

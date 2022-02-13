@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:teker_teker/application/auth/auth_cubit.dart';
-import 'package:teker_teker/presentation/pages/login_page/landing_page.dart';
+
 import 'package:teker_teker/presentation/pages/splash_page.dart';
 
 void main() async {
@@ -19,6 +17,10 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Teker Teker',
-        home: const SplashPage());
+        home: Builder(builder: (context) {
+          return MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.2),
+              child: const SplashPage());
+        }));
   }
 }

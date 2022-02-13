@@ -75,7 +75,8 @@ class LoginCubit extends Cubit<LoginState> {
           'displayName': value.user?.displayName,
           'photoURL': value.user?.photoURL,
           'credit': 0,
-          'turkish_lira': 0
+          'teker_lira': 0,
+          'driver_type': 'Silver Driver'
         });
       });
     } on FirebaseAuthException catch (error) {

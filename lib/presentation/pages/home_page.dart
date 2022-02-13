@@ -26,7 +26,7 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
     ),
     ProfilePage(),
   ];
-  
+
   final items = <FlashyTabBarItem>[
     FlashyTabBarItem(
       title: Text(bottomNavBar2),
@@ -44,9 +44,16 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      lazy: false,
-      create: (context) => HomePageRouterCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          lazy: false,
+          create: (context) => HomePageRouterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(),
+        ),
+      ],
       child: Builder(builder: (context) {
         return HomePageSlice(items: items, screens: _screens);
       }),

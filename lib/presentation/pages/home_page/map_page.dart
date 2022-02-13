@@ -22,10 +22,9 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<MapCubit, MapState>(
       builder: (context, state) {
-        if (state is MapLoading) {
+        if (state.isLoading) {
           return LoadingIndicator();
-        } else {
-          state as MapLoaded;
+        } else if (state.isLoaded) {
           return SafeArea(
             child: Stack(
               children: [
@@ -69,7 +68,10 @@ class _MapPageState extends State<MapPage> {
                                   color: Colors.white,
                                 ),
                               ),
-                              Icon(Icons.qr_code_rounded,color: Colors.white,),
+                              Icon(
+                                Icons.qr_code_rounded,
+                                color: Colors.white,
+                              ),
                             ],
                           ),
                         ),
@@ -81,6 +83,7 @@ class _MapPageState extends State<MapPage> {
             ),
           );
         }
+        return LoadingIndicator();
       },
     );
   }

@@ -1,13 +1,9 @@
 part of 'map_cubit.dart';
 
-@immutable
-abstract class MapState {}
-
-class MapInitial extends MapState {}
-class MapLoading extends MapState {}
-class MapLoaded extends MapState {
-  final Set<Marker> markers;
-  
-
-  MapLoaded(this.markers);
+@freezed
+class MapState with _$MapState {
+  const factory MapState.initial(
+      {required bool isLoading,
+      required bool isLoaded,
+      required Set<Marker> markers}) = _Initial;
 }

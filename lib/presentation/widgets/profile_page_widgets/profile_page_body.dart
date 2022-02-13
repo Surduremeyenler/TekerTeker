@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:teker_teker/application/profile/profile_cubit.dart';
-import 'package:teker_teker/application/profile/profile_state.dart';
+import 'package:teker_teker/application/cubit/profile_cubit.dart';
 import 'package:teker_teker/presentation/widgets/loading_indicator.dart';
 import 'package:teker_teker/presentation/widgets/profile_page_widgets/profile_page_widgets.dart';
 
@@ -11,11 +10,11 @@ class ProfilePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
-      if (state is ProfileLoading) {
+      if (state.isLoading) {
         return Center(
           child: LoadingIndicator(),
         );
-      } else if(state is ProfileLoaded) {
+      } else if (state.isLoading) {
         return SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(
@@ -35,14 +34,13 @@ class ProfilePageBody extends StatelessWidget {
             ),
           ),
         );
-      }
-      else{
-        return Container();
+      } else {
+        return LoadingIndicator();
       }
     });
   }
 
-  Column buildProfile(ProfileLoaded state) {
+  Column buildProfile(state) {
     return Column(
       children: [
         ProfileWidget(

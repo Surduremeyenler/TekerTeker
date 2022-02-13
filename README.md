@@ -5,6 +5,8 @@ Flutter Hackathon Project 2022
 Uygulamayı başlattıktan sonra kayıt olmanız gerekmektedir. Kayıt olduktan sonra giriş yaparak uygulamanın özelliklerinden faydalanabilir, ve kullanabilirsiniz.
 
 ## Ekran Görüntüleri
+![Teker_Teker](https://user-images.githubusercontent.com/67283777/153760839-cda3b4e0-168f-43d5-8781-cd1cbe843e71.png)
+
 ![7](https://user-images.githubusercontent.com/67283777/153760310-de60225c-5229-40b8-bf38-74df96100a73.png)
 ![8](https://user-images.githubusercontent.com/67283777/153760311-6d48ef8f-c799-448f-a023-f8130650fc4d.png)
 ![1](https://user-images.githubusercontent.com/67283777/153760302-6d3da8f8-c16a-4f43-ad45-82ffb459897d.png)

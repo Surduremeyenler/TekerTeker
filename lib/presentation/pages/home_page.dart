@@ -1,6 +1,7 @@
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:teker_teker/application/home_page_router/home_page_router_cubit.dart';
 import 'package:teker_teker/application/login/login_cubit.dart';
 import 'package:teker_teker/application/map/map_cubit.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
@@ -25,6 +26,7 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
     ),
     ProfilePage(),
   ];
+  
   final items = <FlashyTabBarItem>[
     FlashyTabBarItem(
       title: Text(bottomNavBar2),
@@ -39,22 +41,45 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
       icon: Icon(Icons.radio_button_unchecked_sharp),
     ),
   ];
-  int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: Scaffold(
-          bottomNavigationBar: 
-          FlashyTabBar(items: items,onItemSelected: (index)=>updateTabSelection(index),selectedIndex: _selectedIndex,),
-        
-          body: _screens[_selectedIndex]),
+      lazy: false,
+      create: (context) => HomePageRouterCubit(),
+      child: Builder(builder: (context) {
+        return HomePageSlice(items: items, screens: _screens);
+      }),
     );
   }
+}
 
-  void updateTabSelection(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+class HomePageSlice extends StatelessWidget {
+  const HomePageSlice({
+    Key? key,
+    required this.items,
+    required List<Widget> screens,
+  })  : _screens = screens,
+        super(key: key);
+
+  final List<FlashyTabBarItem> items;
+  final List<Widget> _screens;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomePageRouterCubit, HomePageRouterState>(
+      builder: (context, state) {
+        return Scaffold(
+            bottomNavigationBar: FlashyTabBar(
+                items: items,
+                onItemSelected: (index) {
+                  context
+                      .read<HomePageRouterCubit>()
+                      .changeThePage(newPageIndex: index);
+                },
+                selectedIndex: state.pageIndex),
+            body: _screens[state.pageIndex]);
+      },
+    );
   }
 }

@@ -31,7 +31,7 @@ Future<dynamic> showMyDialog(BuildContext context) {
                 child: Text('Yes')),
             TextButton(
               onPressed: () {
-                Navigator.pop(context); //close Dialog
+                Navigator.pop(context);
               },
               child: Text('Close'),
             )

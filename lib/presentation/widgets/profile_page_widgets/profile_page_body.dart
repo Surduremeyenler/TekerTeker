@@ -23,110 +23,15 @@ class ProfilePageBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                ProfileWidget(
-                  imagePath: state.profileInformation['photoURL'],
-                  onClicked: () {},
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  state.profileInformation['displayName'],
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ColorizedCard(
-                        color: Colors.yellow.shade700,
-                        topText: 'test',
-                        bottomText: 'test',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: ColorizedCard(
-                        color: Colors.red,
-                        topText: 'test',
-                        bottomText: 'test',
-                      ),
-                    ),
-                  ],
-                ),
+                buildProfile(state),
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ColorizedCard(
-                        color: Colors.green,
-                        topText: 'test',
-                        bottomText: 'test',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: ColorizedCard(
-                        color: Colors.blue,
-                        topText: 'test',
-                        bottomText: 'test',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: ColorizedCard(
-                        color: Colors.purple,
-                        topText: 'test',
-                        bottomText: 'test',
-                      ),
-                    ),
-                  ],
-                ),
+                buildCards(),
                 SizedBox(
                   height: 40,
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Sürüş Geçmişi',
-                    style: TextStyle(fontSize: 19, color: Colors.white60),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                ListView.builder(
-                    primary: false,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: ListTile(
-                            leading: Icon(Icons.directions_bike_rounded),
-                            title: Text('asdasd'),
-                          ));
-                    }),
+                buildRidesHistory(),
               ],
             ),
           ),
@@ -134,44 +39,34 @@ class ProfilePageBody extends StatelessWidget {
       }
     });
   }
-}
 
-class ColorizedCard extends StatelessWidget {
-  const ColorizedCard({
-    Key? key,
-    required this.color,
-    required this.topText,
-    required this.bottomText,
-  }) : super(key: key);
-  final Color color;
-  final String topText;
-  final String bottomText;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      height: 70,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            topText,
-            style: TextStyle(fontSize: 19, color: Colors.white),
-          ),
-          Divider(
-            color: Colors.grey[800],
-            indent: 20,
-            endIndent: 20,
-          ),
-          Text(
-            bottomText,
-            style: TextStyle(fontSize: 19, color: Colors.white),
-          ),
-        ],
-      ),
-    );
+  Column buildProfile(ProfileLoaded state) {
+    return Column(
+                children: [
+                  ProfileWidget(
+                    imagePath: state.profileInformation['photoURL'],
+                    onClicked: () {},
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    state.profileInformation['displayName'],
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    state.profileInformation['email'],
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ],
+              );
   }
 }

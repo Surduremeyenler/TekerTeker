@@ -2,6 +2,7 @@
 Flutter Hackathon Project 2022
 
 ## Nasıl çalışır? 
+Öncelikle projeyi kendi bilgisayarınıza indirmelisiniz.Daha sonra bir editör ile kodları açıp emülatörde f5 tuşuna basıp çalıştırmalısınız.
 Uygulamayı başlattıktan sonra kayıt olmanız gerekmektedir. Kayıt olduktan sonra giriş yaparak uygulamanın özelliklerinden faydalanabilir, ve kullanabilirsiniz.
 
 ## Ekran Görüntüleri
@@ -14,4 +15,3 @@ Uygulamayı başlattıktan sonra kayıt olmanız gerekmektedir. Kayıt olduktan 
 ![5](https://user-images.githubusercontent.com/67283777/153760308-cc241245-0e4e-4db8-8065-090b73354b7a.png)
 ![2](https://user-images.githubusercontent.com/67283777/153760306-6840d8e7-b580-4911-994c-9364702fa485.png)
 ![3](https://user-images.githubusercontent.com/67283777/153760305-3da858b7-6f5e-4fd7-8f51-ef0403f84510.png)
-![4](https://user-images.githubusercontent.com/67283777/153760304-c10f3ab6-e390-4574-9618-26969f3fca97.png)

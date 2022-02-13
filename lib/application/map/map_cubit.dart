@@ -13,7 +13,7 @@ class MapCubit extends Cubit<MapState> {
   void loadMarkers() async {
     emit(MapLoading());
     var markers = await service.getMarkers();
-    var userLocation = await service.getUserPosition();
-    emit(MapLoaded(markers,userLocation));
+   
+    emit(MapLoaded(markers));
   }
 }

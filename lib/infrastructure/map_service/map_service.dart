@@ -76,11 +76,11 @@ class MapService {
     return _marker;
   }
 
-  Future<Position> getUserPosition() async {
-    var position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
+  // Future<Position> getUserPosition() async {
+  //   var position = await Geolocator.getCurrentPosition(
+  //     desiredAccuracy: LocationAccuracy.high,
+  //   );
 
-    return position;
-  }
+  //   return position;
+  // }
 }

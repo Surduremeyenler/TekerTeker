@@ -14,7 +14,7 @@ class ProfilePageBody extends StatelessWidget {
         return Center(
           child: LoadingIndicator(),
         );
-      } else if (state.isLoading) {
+      } else if (state.isLoaded) {
         return SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Padding(

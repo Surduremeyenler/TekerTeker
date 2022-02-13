@@ -14,4 +14,3 @@ Uygulamayı başlattıktan sonra kayıt olmanız gerekmektedir. Kayıt olduktan 
 ![6](https://user-images.githubusercontent.com/67283777/153760309-d7c4f3bc-e765-4b9a-8436-e8df9f779f41.png)
 ![5](https://user-images.githubusercontent.com/67283777/153760308-cc241245-0e4e-4db8-8065-090b73354b7a.png)
 ![2](https://user-images.githubusercontent.com/67283777/153760306-6840d8e7-b580-4911-994c-9364702fa485.png)
-![3](https://user-images.githubusercontent.com/67283777/153760305-3da858b7-6f5e-4fd7-8f51-ef0403f84510.png)

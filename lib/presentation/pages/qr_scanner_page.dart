@@ -60,9 +60,18 @@ class _QrScannerPageState extends State<QrScannerPage> {
                     });
                   } catch (e) {}
                 },
-                child: Icon(
-                  Icons.flashlight_on,
-                  size: 40,
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundColor: Colors.white,
+                  child: isFlashOpen
+                      ? Icon(
+                          Icons.flashlight_on,
+                          size: 40,
+                        )
+                      : Icon(
+                          Icons.flashlight_off_sharp,
+                          size: 40,
+                        ),
                 ),
               ),
             ),

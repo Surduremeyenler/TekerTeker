@@ -30,15 +30,15 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
   final items = <FlashyTabBarItem>[
     FlashyTabBarItem(
       title: Text(bottomNavBar2,style: TextStyle(color: Colors.black),),
-      icon: Icon(Icons.cabin),
+      icon: Icon(Icons.cabin,color: Colors.grey,),
     ),
     FlashyTabBarItem(
       title: Text(bottomNavBar1,style: TextStyle(color: Colors.black),),
-      icon: Icon(Icons.map),
+      icon: Icon(Icons.map,color: Colors.grey,),
     ),
     FlashyTabBarItem(
       title: Text(bottomNavBar3,style: TextStyle(color: Colors.black),),
-      icon: Icon(Icons.radio_button_unchecked_sharp),
+      icon: Icon(Icons.radio_button_unchecked_sharp,color: Colors.grey,),
     ),
   ];
 

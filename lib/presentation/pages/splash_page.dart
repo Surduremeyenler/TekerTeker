@@ -14,15 +14,20 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 1700), () {
-      Navigator.pushReplacement(
+    Future.delayed(
+      Duration(milliseconds: 1700),
+      () {
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (_) => BlocProvider(
-                    create: (context) => AuthCubit(),
-                    child: AuthLandingPage(),
-                  )));
-    });
+            builder: (_) => BlocProvider(
+              create: (context) => AuthCubit(),
+              child: AuthLandingPage(),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override

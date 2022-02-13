@@ -20,71 +20,74 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MapCubit, MapState>(
-      builder: (context, state) {
-        if (state.isLoading) {
-          return LoadingIndicator();
-        } else if (state.isLoaded) {
-          return SafeArea(
-            child: Stack(
-              children: [
-                GoogleMap(
-                  initialCameraPosition: initialCameraPosition,
-                  mapType: MapType.terrain,
-                  markers: state.markers,
-                  myLocationEnabled: true,
-                  onMapCreated: (GoogleMapController controller) {
-                    _onMapCreated(controller);
-                  },
-                ),
-                Positioned(
-                  width: MediaQuery.of(context).size.width,
-                  bottom: 40,
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const QrScannerPage()),
-                        );
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width / 1.5,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(),
-                              Text(
-                                'Sürüşe Başla',
-                                style: TextStyle(
-                                  fontSize: 20,
+    return BlocProvider(
+      create: (context) => MapCubit()..loadMarkers(),
+      child: BlocBuilder<MapCubit, MapState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return LoadingIndicator();
+          } else if (state.isLoaded) {
+            return SafeArea(
+              child: Stack(
+                children: [
+                  GoogleMap(
+                    initialCameraPosition: initialCameraPosition,
+                    mapType: MapType.terrain,
+                    markers: state.markers,
+                    myLocationEnabled: true,
+                    onMapCreated: (GoogleMapController controller) {
+                      _onMapCreated(controller);
+                    },
+                  ),
+                  Positioned(
+                    width: MediaQuery.of(context).size.width,
+                    bottom: 40,
+                    child: Center(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const QrScannerPage()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width / 1.5,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(),
+                                Text(
+                                  startRiding,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.qr_code_rounded,
                                   color: Colors.white,
                                 ),
-                              ),
-                              Icon(
-                                Icons.qr_code_rounded,
-                                color: Colors.white,
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        }
-        return LoadingIndicator();
-      },
+                ],
+              ),
+            );
+          }
+          return LoadingIndicator();
+        },
+      ),
     );
   }
 

@@ -7,23 +7,24 @@ class SignUpPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: size.width,
+          height: size.height,
           decoration: BoxDecoration(color: Color.fromRGBO(247, 247, 247, 1)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width / 1.6,
-                height:MediaQuery.of(context).size.height / 3.9,
+                width: size.width / 1.6,
+                height: size.height / 3.9,
                 child: Image.asset('assets/tekerteker_sign_up.jpeg'),
               ),
               Expanded(
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: size.width,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -67,17 +68,23 @@ class SignUpPageBody extends StatelessWidget {
                                       ),
                                       Container(
                                           decoration: BoxDecoration(
-                                              border: Border(
-                                                  bottom: BorderSide(
-                                                      color: Color.fromARGB(255,
-                                                          236, 236, 236)))),
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                color: Color.fromARGB(
+                                                    255, 236, 236, 236),
+                                              ),
+                                            ),
+                                          ),
                                           child: EmailInputField()),
                                       Container(
                                           decoration: BoxDecoration(
-                                              border: Border(
-                                                  bottom: BorderSide(
-                                                      color: Color.fromARGB(255,
-                                                          236, 236, 236)))),
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                color: Color.fromARGB(
+                                                    255, 236, 236, 236),
+                                              ),
+                                            ),
+                                          ),
                                           child: PasswordInputField()),
                                       Container(child: RePasswordInputField()),
                                     ],

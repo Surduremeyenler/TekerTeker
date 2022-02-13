@@ -11,6 +11,7 @@ class CreditPageTopSection extends StatelessWidget {
   final firebaseFirestore;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -39,9 +40,12 @@ class CreditPageBottomSection extends StatelessWidget {
   final firebaseFirestore;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3.5),
+        margin: EdgeInsets.only(
+          top: size.height / 3.5,
+        ),
         padding: EdgeInsets.only(top: 15.0),
         decoration: BoxDecoration(
           color: kBodyColor,
@@ -72,7 +76,7 @@ class CreditPageBottomSection extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             ButtonTheme(
-              height: MediaQuery.of(context).size.height / 8,
+              height: size.height / 8,
               child: ElevatedButton(
                 onPressed: () {
                   context
@@ -81,8 +85,8 @@ class CreditPageBottomSection extends StatelessWidget {
                 },
                 style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(
-                      MediaQuery.of(context).size.width / 1.5,
-                      MediaQuery.of(context).size.height / 10,
+                      size.width / 1.5,
+                      size.height / 10,
                     )),
                     backgroundColor:
                         MaterialStateProperty.all(Colors.red.shade900),

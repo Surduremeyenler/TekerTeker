@@ -21,10 +21,7 @@ class HomePageNavigator extends StatefulWidget {
 class _HomePageNavigatorState extends State<HomePageNavigator> {
   final List<Widget> _screens = [
     CreditPage(),
-    BlocProvider(
-      create: (context) => MapCubit()..loadMarkers(),
-      child: MapPage(),
-    ),
+    MapPage(),
     ProfilePage(),
   ];
 

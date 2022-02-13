@@ -64,7 +64,7 @@ Column buildCards(state) {
           Expanded(
             child: ColorizedCard(
               color: Colors.yellow.shade700,
-              topText: 'Toplam Sürüş',
+              topText: 'Toplam Sürüş Süresi (dk)',
               bottomText:
                   state.profileInformation['total_driving_time'].toString(),
             ),
@@ -75,7 +75,7 @@ Column buildCards(state) {
           Expanded(
             child: ColorizedCard(
               color: Colors.red,
-              topText: 'Yapılan Mesafe',
+              topText: 'Yapılan Mesafe (km)',
               bottomText:
                   state.profileInformation['travalled_distance'].toString(),
             ),

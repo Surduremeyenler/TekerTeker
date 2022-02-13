@@ -12,7 +12,7 @@ Widget SignUpText() {
   return Padding(
     padding: const EdgeInsets.all(15.0),
     child: Text(
-      'Sign Up and Join Teker Teker!',
+      "Üye Ol Ve Teker Teker'e Katıl!",
       textAlign: TextAlign.center,
       style: TextStyle(
           fontSize: 35,
@@ -28,7 +28,7 @@ Widget NameInputField() {
       builder: (context, state) {
         return AuthTextField(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          hint: 'Name Surname',
+          hint: 'Ad-Soyad',
           keyboardType: TextInputType.name,
           error: state.name.error?.name,
           onChanged: (name) => context.read<SignUpCubit>().nameChanged(name),
@@ -55,7 +55,7 @@ Widget PasswordInputField() {
     builder: (context, state) {
       return AuthTextField(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        hint: 'Password',
+        hint: 'Şifre',
         isPasswordField: true,
         keyboardType: TextInputType.text,
         error: state.password.error?.name,
@@ -71,7 +71,7 @@ Widget RePasswordInputField() {
     builder: (context, state) {
       return AuthTextField(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        hint: 'Re-Password',
+        hint: 'Şifre Tekrarı',
         isPasswordField: true,
         keyboardType: TextInputType.text,
         error: state.rePassword.error?.name,
@@ -91,7 +91,7 @@ Widget SignUp(BuildContext context) {
               child: Opacity(
                   opacity: 1,
                   child: SignInButton(Buttons.Email,
-                      mini: false, text: 'Sign up with Email!', onPressed: () {
+                      mini: false, text: 'Email ile kayıt ol!', onPressed: () {
                     context.read<SignUpCubit>().signUpWithCredentials();
                     Navigator.pop(context);
                   })))
@@ -101,7 +101,7 @@ Widget SignUp(BuildContext context) {
                   opacity: 0.4,
                   child: SignInButton(Buttons.Email,
                       mini: false,
-                      text: 'Sign up with Email!',
+                      text: 'Email ile kayıt ol!',
                       onPressed: () {})));
     },
   );
@@ -113,7 +113,7 @@ Widget SignInTextButton(BuildContext context) {
       Navigator.pop(context);
     },
     child: const Text(
-      'Do you have an account? Sign In!',
+      'Hesabın Var mı? Giriş Yap!',
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     ),

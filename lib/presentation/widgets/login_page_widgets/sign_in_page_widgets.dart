@@ -11,7 +11,7 @@ Widget LoginText() {
   return const Padding(
     padding: EdgeInsets.only(bottom: 30.0, top: 30.0),
     child: Text(
-      'Welcome to TEKER TEKER App',
+      "TEKER TEKER'e Hoşgeldin",
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
     ),
@@ -22,7 +22,7 @@ Widget SeperatedText() {
   return const Padding(
     padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
     child: Text(
-      'OR',
+      'VEYA',
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
     ),
@@ -48,7 +48,7 @@ Widget PasswordInputField() {
     buildWhen: (previous, current) => previous.password != current.password,
     builder: (context, state) {
       return AuthTextField(
-        hint: 'Password',
+        hint: 'Şifre',
         isPasswordField: true,
         keyboardType: TextInputType.text,
         error: state.password.error?.name,
@@ -81,7 +81,7 @@ Widget SignUpButton(context) {
       );
     },
     child: const Text(
-      "Don't have an account? Sign Up!",
+      "Hesabın Yok mu? Hemen Kaydol",
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     ),
@@ -96,7 +96,7 @@ Widget ForgotPassword() {
           context.read<LoginCubit>().resetPassword();
         },
         child: const Text(
-          'Forgot Password?',
+          'Şifreni mi Unuttun?',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
         ),
@@ -119,7 +119,7 @@ Widget SignInWithGoogle() {
 
 SnackBar SnackBarWhenSuccess() {
   return const SnackBar(
-    content: Text("Success!"),
+    content: Text("Başarılı"),
     backgroundColor: Colors.green,
   );
 }

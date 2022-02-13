@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:teker_teker/application/map/map_cubit.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
 import 'package:teker_teker/presentation/pages/qr_scanner_page.dart';
+import 'package:teker_teker/presentation/widgets/loading_indicator.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _MapPageState extends State<MapPage> {
     return BlocBuilder<MapCubit, MapState>(
       builder: (context, state) {
         if (state is MapLoading) {
-          return Center(child: CircularProgressIndicator());
+          return LoadingIndicator();
         } else {
           state as MapLoaded;
           return SafeArea(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teker_teker/presentation/constants/constants.dart';
 import 'package:teker_teker/presentation/widgets/credits_page_widgets/credit_page_body.dart';
 
 class CreditPage extends StatelessWidget {
@@ -8,7 +9,7 @@ class CreditPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: kBodyColor,
         body: CreditPageBody(),
       ),
     );

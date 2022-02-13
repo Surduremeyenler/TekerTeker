@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teker_teker/application/home_page_router/home_page_router_cubit.dart';
 import 'package:teker_teker/domain/credit_page_contracted_shop_list/credit_page_contracted_shop_list.dart';
 import 'package:teker_teker/presentation/constants/constants.dart';
-import 'package:teker_teker/presentation/pages/home_page/map_page.dart';
 import 'package:teker_teker/presentation/widgets/credits_page_widgets/credit_page_user_card.dart';
 
 class CreditPageTopSection extends StatelessWidget {
@@ -13,23 +12,24 @@ class CreditPageTopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment(-4.0, 0.0),
-            end: Alignment(0.0, 1.5),
-            colors: [
-              Theme.of(context).primaryColor,
-              Theme.of(context).primaryColor,
-              kGradientColor1,
-              kGradientColor2,
-              kGradientColor3,
-              kGradientColor4,
-              kGradientColor4
-            ],
-            stops: [0.0, 0.3, 0.2, 0.3, 0.63, 0.63, 0.0],
-          ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment(-4.0, 0.0),
+          end: Alignment(0.0, 1.5),
+          colors: [
+            Theme.of(context).primaryColor,
+            Theme.of(context).primaryColor,
+            kGradientColor1,
+            kGradientColor2,
+            kGradientColor3,
+            kGradientColor4,
+            kGradientColor4
+          ],
+          stops: [0.0, 0.3, 0.2, 0.3, 0.63, 0.63, 0.0],
         ),
-        child: CreditPageUserCard(firebaseFirestore: firebaseFirestore));
+      ),
+      child: CreditPageUserCard(firebaseFirestore: firebaseFirestore),
+    );
   }
 }
 

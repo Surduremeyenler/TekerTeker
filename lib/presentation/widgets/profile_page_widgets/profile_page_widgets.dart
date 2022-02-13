@@ -8,7 +8,7 @@ Widget ProfilePageAppBar(BuildContext context) {
     elevation: 0,
     actions: [
       IconButton(
-          icon: Icon(Icons.exit_to_app),
+          icon: Icon(Icons.exit_to_app,color: Colors.white60,),
           onPressed: () {
             showMyDialog(context);
           }),
@@ -63,16 +63,16 @@ class ProfileWidget extends StatelessWidget {
     final image = NetworkImage(imagePath);
 
     return CircleAvatar(
-      radius: 70,
-      backgroundColor: Colors.purple,
+      radius: 40,
+      backgroundColor: Colors.black,
       child: ClipOval(
         child: Material(
           color: Colors.transparent,
           child: Ink.image(
             image: image,
             fit: BoxFit.cover,
-            width: 128,
-            height: 128,
+            width: 64,
+            height: 64,
           ),
         ),
       ),

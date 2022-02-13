@@ -55,7 +55,10 @@ class _HomePageNavigatorState extends State<HomePageNavigator> {
         ),
       ],
       child: Builder(builder: (context) {
-        return HomePageSlice(items: items, screens: _screens);
+        return HomePageSlice(
+          items: items,
+          screens: _screens,
+        );
       }),
     );
   }
@@ -77,15 +80,18 @@ class HomePageSlice extends StatelessWidget {
     return BlocBuilder<HomePageRouterCubit, HomePageRouterState>(
       builder: (context, state) {
         return Scaffold(
-            bottomNavigationBar: FlashyTabBar(
-                items: items,
-                onItemSelected: (index) {
-                  context
-                      .read<HomePageRouterCubit>()
-                      .changeThePage(newPageIndex: index);
-                },
-                selectedIndex: state.pageIndex),
-            body: _screens[state.pageIndex]);
+          backgroundColor: kBodyColor,
+          bottomNavigationBar: FlashyTabBar(
+            backgroundColor: kGradientColor2,
+              items: items,
+              onItemSelected: (index) {
+                context
+                    .read<HomePageRouterCubit>()
+                    .changeThePage(newPageIndex: index);
+              },
+              selectedIndex: state.pageIndex),
+          body: _screens[state.pageIndex],
+        );
       },
     );
   }

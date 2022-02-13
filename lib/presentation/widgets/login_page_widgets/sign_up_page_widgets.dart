@@ -89,13 +89,12 @@ Widget SignUp(BuildContext context) {
           ? Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Opacity(
-                opacity: 1,
-                child: SignInButton(Buttons.Email,
-                    mini: false,
-                    text: 'Sign up with Email!',
-                    onPressed: () =>
-                        context.read<SignUpCubit>().signUpWithCredentials()),
-              ))
+                  opacity: 1,
+                  child: SignInButton(Buttons.Email,
+                      mini: false, text: 'Sign up with Email!', onPressed: () {
+                    context.read<SignUpCubit>().signUpWithCredentials();
+                    Navigator.pop(context);
+                  })))
           : Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Opacity(
